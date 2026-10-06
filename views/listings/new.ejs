@@ -6,10 +6,11 @@
       <div class="col-8 offset-2">
 
         
-        <form method="POST" action="/listings">
+        <form class="needs-validation" method="POST" action="/listings" novalidate>
           <div>
             <label for="title" class="form-label">Title</label>
-            <input class="form-control" name="listing[title]" placeholder="add a catcy title" type="text" />
+            <input class="form-control" name="listing[title]" placeholder="add a catcy title" type="text" required />
+            <div class="valid-feedback">Title looks good!</div>
           </div>
           
           <br />
@@ -17,8 +18,9 @@
             <label for="description" class="form-label">Description</label>
             <textarea
             name="listing[description]"
-          placeholder="enter description" class="form-control"
+          placeholder="enter description" class="form-control" required
           ></textarea>
+               <div class="invalid-feedback">Please enter a short description</div>
         </div>
         <br />
         
@@ -37,12 +39,14 @@
 
             <div class="col-md-4">
               <label for="price" class="form-label">Price</label>
-              <input class="form-control" name="listing[price]" placeholder="1200" type="number" />
+              <input class="form-control" name="listing[price]" placeholder="1200" required />
+     <div class="invalid-feedback">Price should be valid</div>
             </div>
             
             <div class="col-md-8">
               <label for="country" class="form-label">Country</label>
-              <input class="form-control" name="listing[country]" placeholder="India" type="text" />
+              <input class="form-control" name="listing[country]" placeholder="India" type="text" required />
+              <div class="invalid-feedback">Country name should be valid</div>
             </div>
           </div>
       <br />
@@ -53,8 +57,9 @@
         name="listing[location]"
         placeholder="Jaipur,Rajasthan"
         type="text"
-        class="form-control"
+        class="form-control" required
         />
+           <div class="invalid-feedback">Location should be valid</div>
       </div>
       <br />
       <button class="btn btn-dark mb-3 add-btn">Add</button>
