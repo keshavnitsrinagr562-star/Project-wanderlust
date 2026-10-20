@@ -1,3 +1,7 @@
+const dns = require("dns");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
+
 if(process.env.NODE_ENV != "production") {
     require('dotenv').config();
 }
@@ -21,7 +25,8 @@ const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 
-const mongo_url = "mongodb://127.0.0.1:27017/wanderlust";
+// const mongo_url = "mongodb://127.0.0.1:27017/wanderlust";
+const db_url = process.env.ATLASDB_URL;
 
 main()
     .then(() => {
@@ -32,7 +37,7 @@ main()
 
     });
 async function main() {
-    await mongoose.connect(mongo_url)
+    await mongoose.connect(db_url)
 }
 
 app.set("view engine", "ejs");
